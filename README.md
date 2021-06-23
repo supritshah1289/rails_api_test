@@ -51,5 +51,8 @@ Run the command below
 
 Below add to GEMFILE
 
+Serializing the api, all the models and dependencies
 `gem 'active_model_serializers', '~> 0.8.3'`
+
+Uploading images to S3 bucket
 `gem "aws-sdk-s3", require: false`
