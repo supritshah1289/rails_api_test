@@ -39,7 +39,9 @@ Things you may want to cover:
 ## Generate models
 
 `rails g scaffold user email:string password:string auth_token:string image:attachment`
+
 `rails g scaffold post title:string body:text user:references image:attachment`
+
 `rails g scaffold comment body:text user:references post:references`
 
 ### Add GEMS
