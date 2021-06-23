@@ -24,7 +24,6 @@ default: &default
 development:
   <<: *default
   database: my_blog_development
-  database: imageuploadtest_development
   username: postgres
   password: postgres
   host: localhost
