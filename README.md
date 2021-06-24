@@ -23,7 +23,7 @@ Things you may want to cover:
 
 - ...
 
-## Commands to create this app
+## Commands to create new rails app with postgresql database
 
 `rails new my_blog --api -d postgresql`
 
@@ -43,6 +43,8 @@ Things you may want to cover:
 `rails g scaffold post title:string body:text user:references image:attachment`
 
 `rails g scaffold comment body:text user:references post:references`
+
+After creating each models we need to migrate database using command `rake db:migrate`
 
 ### Add GEMS
 
