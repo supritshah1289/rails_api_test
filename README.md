@@ -58,3 +58,45 @@ Serializing the api, all the models and dependencies
 
 Uploading images to S3 bucket
 `gem "aws-sdk-s3", require: false`
+
+# AWS S3 Config
+
+- Create a bucket
+- add permission on bucket
+
+`
+
+[
+{
+"AllowedHeaders": [
+"*"
+],
+"AllowedMethods": [
+"PUT",
+"POST",
+"DELETE"
+],
+"AllowedOrigins": [
+"*"
+],
+"ExposeHeaders": []
+}
+]
+`
+
+- add credentails using the command
+  `EDITOR="code --wait" rails credentials:edit`
+  It will open a file in default editor, update the file by adding access id and key
+
+- Update configuration for storage in file
+  File -> config/environments/development.rb
+  Update -> config.active_storage.service = :amazon
+
+File -> config/storage.yml
+Update ->
+amazon:
+service: S3
+access_key_id: ""
+secret_access_key: ""
+bucket: ""
+region: "" # e.g. 'us-east-1'
