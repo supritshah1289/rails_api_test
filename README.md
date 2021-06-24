@@ -97,9 +97,12 @@ Uploading images to S3 bucket
 
 **_File_** -> config/storage.yml
 Update ->
+
+```
 amazon:
-service: S3
-access_key_id: ""
-secret_access_key: ""
-bucket: ""
-region: "" # e.g. 'us-east-1'
+    service: S3
+    access_key_id: ""
+    secret_access_key: ""
+    bucket: ""
+    region: "" # e.g. 'us-east-1'
+```
