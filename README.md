@@ -64,35 +64,38 @@ Uploading images to S3 bucket
 - Create a bucket
 - add permission on bucket
 
-`
+```
 
 [
-{
-"AllowedHeaders": [
-"*"
-],
-"AllowedMethods": [
-"PUT",
-"POST",
-"DELETE"
-],
-"AllowedOrigins": [
-"*"
-],
-"ExposeHeaders": []
-}
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
 ]
-`
+
+```
 
 - add credentails using the command
+
   `EDITOR="code --wait" rails credentials:edit`
+
   It will open a file in default editor, update the file by adding access id and key
 
 - Update configuration for storage in file
-  File -> config/environments/development.rb
+  **_File_** -> config/environments/development.rb
   Update -> config.active_storage.service = :amazon
 
-File -> config/storage.yml
+**_File_** -> config/storage.yml
 Update ->
 amazon:
 service: S3
