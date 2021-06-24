@@ -23,13 +23,25 @@ Things you may want to cover:
 
 - ...
 
+## Database creation and running
+
+```
+docker run --name chumwander -d -p 5432:5432 -v <PATH_TO_YOUR_PHYSICAL_DRIVE>://var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres postgres:latest
+```
+
+Login in to running postgres docker container for debugging purposes
+
+```
+docker exec -it <CONTAINER_ID> psql -U postgres
+```
+
 ## Commands to create new rails app with postgresql database
 
 `rails new my_blog --api -d postgresql`
 
 # Step 1 Config > database.yml
 
-    Add the configuration to development
+    #Add the configuration to development
     database: my_blog_development
     username: postgres
     password: postgres
