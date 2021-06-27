@@ -19,15 +19,24 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  port: <%= ENV.fetch('DATABASE_PORT') || '5432' %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: my_blog_development
-  username: postgres
-  password: postgres
-  host: localhost
-  port: 5432
+  adapter: postgresql
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  port: <%= ENV.fetch('DATABASE_PORT') || '5432' %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
+  # username: postgres
+  # password: postgres
+  # host: localhost
+  # port: 5432
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -82,8 +91,16 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: my_blog_production
+#   username: my_blog
+#   password: <%= ENV['MY_BLOG_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: my_blog_production
-  username: my_blog
-  password: <%= ENV['MY_BLOG_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  port: <%= ENV.fetch('DATABASE_PORT') || '5432' %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
