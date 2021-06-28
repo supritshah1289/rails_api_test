@@ -1,28 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-- Ruby version
-
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
-
 ## Commands to create new rails app with postgresql database
 
 `rails new my_blog --api -d postgresql`
@@ -55,15 +30,15 @@ After creating each models we need to migrate database using command `rake db:mi
 
 ### Add GEMS
 
-Run the command below
+Run the command below to install active storage for storing images to S3 bucket
 `bin/rails active_storage:install`
 
-Below add to GEMFILE
+Below add to GEMFILE to serialize api
 
 Serializing the api, all the models and dependencies
 `gem 'active_model_serializers', '~> 0.8.3'`
 
-Uploading images to S3 bucket
+Uploading images to S3 bucket sdk
 `gem "aws-sdk-s3", require: false`
 
 # AWS S3 Config
@@ -91,7 +66,7 @@ Uploading images to S3 bucket
 
 ```
 
-- add credentails using the command
+- add credentails of AWS to rails app using the command
   `EDITOR="code --wait" rails credentials:edit`
   It will open a file in default editor, update the file by adding access id and key
 
