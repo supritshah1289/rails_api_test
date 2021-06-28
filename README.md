@@ -161,7 +161,11 @@ Command to run created docker image
 
 `docker run -d -p 3000:3000 <CREATED_IMAGE>`
 
+## Command to run the image created connects database container
+
+```
 docker run --name myblog -e DATABASE_HOST=172.17.0.1 -e DATABASE_PORT=5432 -e DATABASE_USERNAME=postgres -e DATABASE_PASSWORD=postgres -d -p 3000:3000 my_blog
+```
 
 Command to log in to running container
 `docker exec -it <container_id> bash`
