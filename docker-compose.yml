@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - /Users/suprit/code/rails/pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  web:
+    image: supritshah1289/my_blog:v1
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_HOST=172.17.0.1
+      - DATABASE_PORT=5432
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres
+    depends_on:
+      - db

@@ -167,3 +167,17 @@ Command to log in to running container
 `docker exec -it <container_id> bash`
 
 run command after login in to running docker container
+
+## Pushing images to docker hub
+
+It's a two steps process.
+
+1. Create a tag of existing image with your docker hub login username
+   `docker image tag my_blog supritshah1289/my_blog:v1`
+2. push the image
+   `docker image push supritshah1289/my_blog:v1`
+
+# Docker Compose
+
+1. Create docker compose file with dependencies
+2. run the command to start compose ` docker-compose up` at the root of the docker compose file. The images has to be on docker hub to use in docker-compose.yml file
