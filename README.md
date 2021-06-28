@@ -119,35 +119,9 @@ Settings required for setting docker image
 1. Database.yml
 2. Dockerfile
 
-Add Docker file
+## Create docker file as
 
-```
-#Use the same ruby version from gemfile
-FROM ruby:2.6
-#copy application code into application directory
-COPY . /application
-
-#set configuration
-RUN bundle config set --deployment "true"
-RUN bundle config set --without "development test"
-
-#Change to the application's directory
-WORKDIR /application
-
-RUN gem install bundler
-
-# Install gems
-
-RUN bundle install
-
-#Set environment variable
-ENV RAILS_ENV production
-
-# ENTRYPOINT ['./application/entrypoint.sh']
-
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
-
-```
+[Dockerfile](https://raw.githubusercontent.com/supritshah1289/rails_api_test/master/Dockerfile)
 
 Command to create an image of the application
 
@@ -182,6 +156,8 @@ It's a two steps process.
    `docker image push supritshah1289/my_blog:v1`
 
 # Docker Compose
+
+Create a docker-compose.yml file similar too [docker-compose.yml](https://raw.githubusercontent.com/supritshah1289/rails_api_test/master/docker-compose.yml)
 
 1. Create docker compose file with dependencies
 2. run the command to start compose ` docker-compose up` at the root of the docker compose file. The images has to be on docker hub to use in docker-compose.yml file
